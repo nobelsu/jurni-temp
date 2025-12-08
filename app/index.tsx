@@ -11,11 +11,11 @@ export default function GettingStartedScreen() {
 
     return (
         <SafeAreaView style={{...defaultStyles.container, paddingHorizontal: 20,}}>
-            <View style={{flex: 10, justifyContent:"center", alignItems: "center"}}>
+            <View style={{flex: 5, justifyContent:"center", alignItems: "center"}}>
                 <Text>PLACEHOLDER IMAGE</Text>
             </View>
             <View style={{flex: 1, justifyContent: "center", alignItems: "center", width: "100%"}}>
-                <Btn styleBtn={{width: "100%"}} styleTxt={{fontSize: 14, color: "white"}} text="Get Started" onPress={() => {router.navigate('phone_number');}} />
+                <Btn styleBtn={{}} styleTxt={{ fontWeight: 600,}} text="Get started" onPress={() => {router.navigate('phone_number');}} />
             </View>
         </SafeAreaView>
     )

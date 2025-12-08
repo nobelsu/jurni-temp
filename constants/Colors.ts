@@ -3,6 +3,10 @@ const tintColorDark = "#fff";
 
 export const Colors = {
   light: {
+    btnText: "white",
+    primary: "red",
+
+    
     text: "#1a1a1a",
     lighterText: "#6b7280",
     lightestText: "#9ca3af",
@@ -22,6 +26,10 @@ export const Colors = {
     searchBar: "#f3f3f5",
   },
   dark: {
+    btnText: "black",
+    primary: "red",
+
+
     text: "#e6e6e6",
     lighterText: "#808793",
     lightestText: "#505762",

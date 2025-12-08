@@ -19,8 +19,8 @@ export default function StyleDefault({ colorScheme } : StyleDefaultProps) {
       paddingTop: 10,
     },
     title: {
-      fontSize: 24,
-      fontWeight: "bold",
+      fontSize: 22,
+      fontWeight: 600,
       color: Colors[colorScheme ?? "light"].text,
       marginBottom: 4,
     },

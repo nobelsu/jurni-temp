@@ -1,4 +1,6 @@
 import { Text, TouchableOpacity, ViewStyle, TextStyle} from 'react-native';
+import { Colors } from '../constants/Colors';
+import { useColorScheme } from 'react-native';
 
 interface BtnProps {
     onPress?: () => void;
@@ -8,6 +10,8 @@ interface BtnProps {
 }
 
 export default function Btn({onPress, text, styleBtn, styleTxt}: BtnProps) {
+    const colorScheme = useColorScheme();
+ 
     return (
         <TouchableOpacity 
             onPress={onPress} 
@@ -17,11 +21,12 @@ export default function Btn({onPress, text, styleBtn, styleTxt}: BtnProps) {
                 borderRadius: 12,
                 justifyContent: "center",
                 alignItems: "center",
+                width: "100%",
                 ...styleBtn
             }}
         >
             <Text style ={{
-                color: "black",
+                color: Colors[colorScheme ?? "light"].btnText,
                 fontSize: 16,
                 ...styleTxt
             }}>
