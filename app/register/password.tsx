@@ -1,10 +1,10 @@
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function HomeScreen() {
+export default function RegisterPasswordScreen() {
     return (
         <SafeAreaView>
-            <Text>Home</Text>
+            <Text>Register Password</Text>
         </SafeAreaView>
     )
 }

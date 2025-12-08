@@ -1,12 +1,11 @@
 import { View, Text, useColorScheme } from 'react-native';
-import Btn from '../../components/CustomButton';
-import { useNavigation, NavigationProp } from '@react-navigation/native';
-import StyleDefault from '../../constants/DefaultStyles';
+import Btn from '../components/CustomButton';
+import StyleDefault from '../constants/DefaultStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import RootStackParamList from '../../constants/RootStackParamList';
+import { useRouter } from 'expo-router';
 
 export default function PhoneNumberScreen() {
-    const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+    const router = useRouter();
     const colorScheme = useColorScheme();
     const defaultStyles = StyleDefault({ colorScheme });
 
@@ -16,7 +15,7 @@ export default function PhoneNumberScreen() {
                 <Text>Phone Number</Text>
             </View>
             <View style={{flex: 1, justifyContent: "center", alignItems: "center", width: "100%"}}>
-                <Btn styleBtn={{width: "100%"}} styleTxt={{fontSize: 14, color: "white"}} text="Enter" onPress={() => {navigation.navigate('LoginPassword');}} />
+                <Btn styleBtn={{width: "100%"}} styleTxt={{fontSize: 14, color: "white"}} text="Enter" onPress={() => {router.navigate("/login/password");}} />
             </View>
         </SafeAreaView>
     )
