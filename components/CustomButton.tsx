@@ -28,6 +28,7 @@ export default function Btn({onPress, text, styleBtn, styleTxt}: BtnProps) {
             <Text style ={{
                 color: Colors[colorScheme ?? "light"].btnText,
                 fontSize: 16,
+                fontFamily:"Outfit_600SemiBold",
                 ...styleTxt
             }}>
                 {text}

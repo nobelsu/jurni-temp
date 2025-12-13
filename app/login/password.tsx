@@ -17,8 +17,8 @@ export default function LoginPasswordScreen() {
                     <Text style={defaultStyles.title}>Enter your password</Text>
                     <Text style={{...defaultStyles.subtitle, marginTop: 10,}}>We found an account that matches your mobile number</Text>
                     <View style={{marginTop: 20, height: 50,}}>
-                        <View style={{flex: 1,alignItems: "center", justifyContent: "center", borderWidth: 0, borderRadius: 15, backgroundColor: Colors[colorScheme ?? "light"].secondaryBackground}}>
-                            <TextInput style={{width: "90%", height: "80%", fontSize: 14, }} placeholder='Password'/>
+                        <View style={{flex: 1,alignItems: "center", justifyContent: "center", borderRadius: 15,  borderWidth: 1, borderColor: Colors[colorScheme ?? "light"].primary, backgroundColor: Colors[colorScheme ?? "light"].primaryBackground}}>
+                            <TextInput style={{width: "90%", height: "80%", fontSize: 14, fontFamily:'Outfit_400Regular', color: Colors[colorScheme ?? "light"].primaryText,}} placeholderTextColor={Colors[colorScheme ?? "light"].secondary} secureTextEntry placeholder='Password'/>
                         </View>
                     </View>
                 </View>

@@ -1,5 +1,6 @@
 import { ColorSchemeName, StyleSheet } from "react-native";
 import { Colors } from "./Colors";
+import { useFonts } from 'expo-font';
 
 interface StyleDefaultProps {
     colorScheme : ColorSchemeName    
@@ -20,31 +21,32 @@ export default function StyleDefault({ colorScheme } : StyleDefaultProps) {
     },
     title: {
       fontSize: 22,
-      fontWeight: 600,
-      color: Colors[colorScheme ?? "light"].text,
+      fontFamily: 'Outfit_600SemiBold',
+      color: Colors[colorScheme ?? "light"].primaryText,
       marginBottom: 4,
     },
     subtitle: {
       fontSize: 14,
-      color: Colors[colorScheme ?? "light"].lighterText,
+      fontFamily: 'Outfit_400Regular',
+      color: Colors[colorScheme ?? "light"].secondary,
     },
     smallCard: {
       borderRadius: 8,
       borderWidth: 1,
       borderColor: Colors[colorScheme ?? "light"].borderColor,
-      backgroundColor: Colors[colorScheme ?? "light"].secondaryBackground,
+      backgroundColor: Colors[colorScheme ?? "light"].primaryBackground,
     },
     mediumCard: {
       borderRadius: 12,
       borderWidth: 1,
       borderColor: Colors[colorScheme ?? "light"].borderColor,
-      backgroundColor: Colors[colorScheme ?? "light"].secondaryBackground,
+      backgroundColor: Colors[colorScheme ?? "light"].primaryBackground,
     },
     largeCard: {
       borderRadius: 16,
       borderWidth: 4,
       borderColor: Colors[colorScheme ?? "light"].borderColor,
-      backgroundColor: Colors[colorScheme ?? "light"].secondaryBackground,
+      backgroundColor: Colors[colorScheme ?? "light"].primaryBackground,
     },
   });
   return DefaultStyles;

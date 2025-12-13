@@ -4,15 +4,17 @@ const tintColorDark = "#fff";
 export const Colors = {
   light: {
     btnText: "white",
-    primary: "red",
+    primary: "#89163a",
+    secondary: "#dcddde",
     borderColor: "black",
+    primaryBackground: "white",
+    secondaryBackground: "#dcddde",
+    primaryText: "black",
 
     
     text: "#1a1a1a",
     lighterText: "#6b7280",
     lightestText: "#9ca3af",
-    primaryBackground: "#f9fafb",
-    secondaryBackground: "white",
     primaryRed: "#c92422",
     primaryGreen: "#4da34c",
     primaryBlue: "#435ff2",
@@ -26,16 +28,18 @@ export const Colors = {
     searchBar: "#f3f3f5",
   },
   dark: {
-    btnText: "black",
-    primary: "blue",
+    btnText: "white",
+    primary: "#da1d52",
+    secondary: "#efe1d3",
     borderColor: "white",
+    primaryBackground: "black",
+    secondaryBackground: "#dcddde",
+    primaryText: "white",
 
 
     text: "#e6e6e6",
     lighterText: "#808793",
     lightestText: "#505762",
-    primaryBackground: "#1a1a1a",
-    secondaryBackground: "black",
     primaryRed: "#d5413f",
     primaryGreen: "#61af60",
     primaryBlue: "#667efa",

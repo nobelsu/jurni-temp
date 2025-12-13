@@ -159,7 +159,7 @@ export default function MapScreen() {
                 height: 50,
                 width: 50,
                 borderRadius: 100,
-                backgroundColor: "white",
+                backgroundColor: Colors[colorScheme ?? "light"].primaryBackground,
                 top: 60,
                 left: 20,
                 zIndex: 1000,
@@ -181,7 +181,7 @@ export default function MapScreen() {
                 }}
             />
             :
-            <View style={{flex: 1, backgroundColor: "white",}}>
+            <View style={{flex: 1, backgroundColor: Colors[colorScheme ?? "light"].primaryBackground,}}>
                 <Text>
                     {errorMsg}
                 </Text>
@@ -197,6 +197,8 @@ export default function MapScreen() {
                         setSubtitle1("You've got options.");
                     }
                 }}
+                backgroundStyle={{backgroundColor: Colors[colorScheme ?? "light"].primaryBackground}}
+                handleIndicatorStyle={{backgroundColor: Colors[colorScheme ?? "light"].primaryText}}
                 keyboardBehavior="interactive"
                 snapPoints={ phase == 0 ? snapPoints : phase == 1 ? snapPoints1 : phase == 2 ? snapPoints2 : snapPoints3}
                 enableDynamicSizing={false}
@@ -206,7 +208,7 @@ export default function MapScreen() {
                     if (phase == 0) {
                         return (
                             <BottomSheetFooter {...props}>
-                                <View style={{width: "100%", paddingHorizontal: 20, backgroundColor: "white", paddingBottom: 40,}}>
+                                <View style={{width: "100%", paddingHorizontal: 20, backgroundColor: Colors[colorScheme ?? "light"].primaryBackground, paddingBottom: 40,}}>
                                     <Btn styleBtn={{}} styleTxt={{ fontWeight: 600,}} text={btnText} onPress={() => {
                                         if (destInput && pickupInput) {
                                             setPhase(1);
@@ -219,7 +221,7 @@ export default function MapScreen() {
                     } else if (phase == 1) {
                         return (
                             <BottomSheetFooter {...props}>
-                                <View style={{width: "100%", paddingHorizontal: 20, backgroundColor: "white", paddingBottom: 40,}}>
+                                <View style={{width: "100%", paddingHorizontal: 20, backgroundColor: Colors[colorScheme ?? "light"].primaryBackground, paddingBottom: 40,}}>
                                     <Btn onPress={() => {
                                         if (confirmed) {
                                             setConfirmed(false); 
@@ -237,23 +239,23 @@ export default function MapScreen() {
                     } else if (phase == 2) {
                         return (
                             <BottomSheetFooter {...props}>
-                                <View style={{width: "100%", paddingHorizontal: 20, backgroundColor: "white", paddingBottom: 40, gap: 10,}}>
+                                <View style={{width: "100%", paddingHorizontal: 20, backgroundColor: Colors[colorScheme ?? "light"].primaryBackground, paddingBottom: 40, gap: 10,}}>
                                     <Btn onPress={() => {
                                         setPhase(3);
                                         bottomSheetRef.current?.snapToIndex(0);
-                                    }} styleTxt={{fontWeight: 600, color: Colors[colorScheme ?? "light"].primary,}} styleBtn={{
+                                    }} text="Request Ride"/>
+                                    <Btn onPress={() => {setPhase(1)}} styleTxt={{color: Colors[colorScheme ?? "light"].primary,}} styleBtn={{
                                         borderWidth: 3,
                                         borderColor: Colors[colorScheme ?? "light"].primary,
-                                        backgroundColor: "white",
-                                    }} text="Request Ride"/>
-                                    <Btn onPress={() => {setPhase(1)}} styleTxt={{fontWeight: 600,}} text="Return"/>
+                                        backgroundColor: Colors[colorScheme ?? "light"].primaryBackground,
+                                    }} text="Return"/>
                                 </View>
                             </BottomSheetFooter>
                         )
                     }
                     return (
                         <BottomSheetFooter {...props}>
-                            <View style={{width: "100%", paddingHorizontal: 20, backgroundColor: "white", paddingBottom: 40,}}>
+                            <View style={{width: "100%", paddingHorizontal: 20, backgroundColor: Colors[colorScheme ?? "light"].primaryBackground, paddingBottom: 40,}}>
                                 <Btn onPress={() => {
                                     setPhase(0);
                                 }} styleTxt={{fontWeight: 600,}} text={"Cancel"}/>
@@ -263,25 +265,25 @@ export default function MapScreen() {
                 }}
             >
                 { phase == 0 ? 
-                    <BottomSheetScrollView style={{flex: 1, marginBottom: 100,}} stickyHeaderIndices={[0]}>
+                    <BottomSheetScrollView style={{flex: 1, marginBottom: 100, backgroundColor: Colors[colorScheme ?? "light"].primaryBackground}} stickyHeaderIndices={[0]}>
                         <View>
                             <View style={{
                                 width: windowWidth,
                                 alignItems: 'center',
                                 paddingHorizontal: 20,
                                 paddingVertical: 10,
-                                backgroundColor: "white",
+                                backgroundColor: Colors[colorScheme ?? "light"].primaryBackground,
                                 marginBottom: 10,
                             }}>
                                 <Text style={{...defaultStyles.title }}>{title0}</Text>
                                 <Text style={{...defaultStyles.subtitle}}>{subtitle0}</Text>
-                                <View style={{ width: "100%", borderRadius: 15, borderWidth: 1, marginTop: 15, paddingVertical: 10,}}>
+                                <View style={{ width: "100%", borderRadius: 15, borderWidth: 1, marginTop: 15, paddingVertical: 10,borderColor:  Colors[colorScheme ?? "light"].borderColor}}>
                                     <View style={{height: 18, alignItems: "center", justifyContent: "center",}}>
-                                        <BottomSheetTextInput style={{width: "90%", height: "90%", fontSize: 14,}} placeholder='Pickup Location' value={pickupInput} onChangeText={(text) => {setPickupInput(text)}}/>
+                                        <BottomSheetTextInput style={{width: "90%", height: "90%", fontSize: 14,color: Colors[colorScheme ?? "light"].primaryText, fontFamily:'Outfit_400Regular'}} placeholderTextColor={Colors[colorScheme ?? "light"].secondary} placeholder='Pickup Location' value={pickupInput} onChangeText={(text) => {setPickupInput(text)}}/>
                                     </View>
-                                    <View style={{marginLeft: "5%", width: "90%", borderWidth: 0.3, marginTop: 6,}}></View>
+                                    <View style={{marginLeft: "5%", width: "90%", borderWidth: 0.3, marginTop: 6, borderColor: Colors[colorScheme ?? "light"].primaryText}}></View>
                                     <View style={{height: 18, alignItems: "center", justifyContent: "center", marginTop: 8,}}>
-                                        <BottomSheetTextInput style={{width: "90%", height: "90%", fontSize: 14,}} placeholder='Where to?' value={destInput} onChangeText={(text) => {setDestInput(text)}}/>
+                                        <BottomSheetTextInput style={{width: "90%", height: "90%", fontSize: 14,color: Colors[colorScheme ?? "light"].primaryText, fontFamily:'Outfit_400Regular'}} placeholderTextColor={Colors[colorScheme ?? "light"].secondary} placeholder='Where to?' value={destInput} onChangeText={(text) => {setDestInput(text)}}/>
                                     </View>
                                 </View>
                             </View>                  
@@ -303,7 +305,7 @@ export default function MapScreen() {
                                             {item.address}
                                         </Text>
                                     </TouchableOpacity>
-                                    <View style={{width: "100%", borderWidth: 0.3, marginTop: 10,}}></View>
+                                    <View style={{width: "100%", borderWidth: 0.3, marginTop: 10,borderColor:Colors[colorScheme ?? "light"].primaryText}}></View>
                                 </View>
                             )
                         })}
@@ -319,14 +321,14 @@ export default function MapScreen() {
                     </BottomSheetScrollView>  
                 :
                     phase == 1 ? 
-                        <BottomSheetScrollView style={{flex: 1, marginBottom: 100,}} stickyHeaderIndices={[0]}>
+                        <BottomSheetScrollView style={{flex: 1, marginBottom: 100, backgroundColor: Colors[colorScheme ?? "light"].primaryBackground}} stickyHeaderIndices={[0]}>
                             <View>
                                 <View style={{
                                     width: windowWidth,
                                     alignItems: 'center',
                                     paddingHorizontal: 20,
                                     paddingVertical: 10,
-                                    backgroundColor: "white",
+                                    backgroundColor: Colors[colorScheme ?? "light"].primaryBackground,
                                 }}>
                                     <Text style={{...defaultStyles.title}}>{title1}</Text>
                                     <Text style={{...defaultStyles.subtitle}}>{subtitle1}</Text>
@@ -343,7 +345,7 @@ export default function MapScreen() {
                                     }}
                                     style={{...defaultStyles.largeCard, height: 180, width: "100%", marginTop: 20, padding: 20, borderColor: confirmed ? Colors[colorScheme ?? "light"].primary : Colors[colorScheme ?? "light"].borderColor }}>
                                         <View style={{flex: 2, justifyContent: "center", alignItems: "center",}}>
-                                            <Text>ICON HERE</Text>
+                                            <Text style={{color: Colors[colorScheme ?? "light"].primaryText}}>ICON HERE</Text>
                                         </View>
                                         <View style={{flex: 1, flexDirection: "row"}}>
                                             <View style={{flex: 2}}>
@@ -378,7 +380,7 @@ export default function MapScreen() {
                                         }}style={{height: 80, marginHorizontal: 20, marginVertical: 5,}}>
                                             <View style={{flex: 1, flexDirection: "row", padding: 10,}}>
                                                 <View style={{flex: 3, justifyContent: "center", alignItems: "center"}}>
-                                                    <Text>ICON HERE</Text>
+                                                    <Text style={{color: Colors[colorScheme ?? "light"].primaryText}}>ICON HERE</Text>
                                                 </View>
                                                 <View style={{flex: 6, justifyContent: "center", paddingLeft: 10,}}>
                                                     <View style={{flexDirection: "row", gap: 10, alignItems: "center",}}>
@@ -400,15 +402,14 @@ export default function MapScreen() {
                         </BottomSheetScrollView>
                     : 
                         phase == 2 ?
-                            <BottomSheetScrollView style={{flex: 1, marginBottom: 100,}} stickyHeaderIndices={[0]}>
+                            <BottomSheetScrollView style={{flex: 1, marginBottom: 100, backgroundColor: Colors[colorScheme ?? "light"].primaryBackground}} stickyHeaderIndices={[0]}>
                                 <View style={{
                                     width: windowWidth,
-                                    // alignItems: 'center',
                                     paddingHorizontal: 20,
                                     paddingVertical: 10,
-                                    // backgroundColor: "red",
+                                    backgroundColor: Colors[colorScheme ?? "light"].primaryBackground
                                 }}>
-                                    <View style={{width: "100%", alignItems: "center", backgroundColor: "white"}}>
+                                    <View style={{width: "100%", alignItems: "center"}}>
                                         <Text style={{...defaultStyles.title}}>Your Jurni ride</Text>
                                         <Text style={{...defaultStyles.subtitle}}>Here's a quick summary.</Text>
                                     </View>
@@ -430,30 +431,31 @@ export default function MapScreen() {
                                         <Text style={{...defaultStyles.title, fontSize: 18,}}>Details</Text>
                                     </View>
                                     {rideSummaryData.map((item) => {
-                                    if (item.name == "Price") {
+                                        if (item.name == "Price") {
+                                            return (
+                                                <View key={item.name}></View>
+                                            )
+                                        }
                                         return (
-                                            <View key={item.name}></View>
-                                        )
-                                    }
-                                    return (
-                                        <View key={item.name} style={{paddingVertical: 15}}>
-                                            <View style={{flex: 1, flexDirection: "row",}}>
-                                                <View style={{flex: 1, justifyContent: "center",}}>
-                                                    <Text style={{...defaultStyles.title, fontSize: 14,}}>{item.name}</Text>
-                                                </View>
-                                                <View style={{flex: 1, alignItems: "flex-end", justifyContent: "center",}}>
-                                                    <Text style={{...defaultStyles.subtitle, fontSize: 14,textAlign:"right"}}>{item.value}</Text>
+                                            <View key={item.name} style={{paddingVertical: 15}}>
+                                                <View style={{flex: 1, flexDirection: "row",}}>
+                                                    <View style={{flex: 1, justifyContent: "center",}}>
+                                                        <Text style={{...defaultStyles.title, fontSize: 14,}}>{item.name}</Text>
+                                                    </View>
+                                                    <View style={{flex: 1, alignItems: "flex-end", justifyContent: "center",}}>
+                                                        <Text style={{...defaultStyles.subtitle, fontSize: 14,textAlign:"right"}}>{item.value}</Text>
+                                                    </View>
                                                 </View>
                                             </View>
-                                        </View>
-                                    )
-                                })}
+                                        )
+                                    })}
                                 </View>
+                                <View style={{height: 100, }}></View>
                             </BottomSheetScrollView>
                         :
-                            <BottomSheetView style={{height: windowHeight-265, width: "100%"}}>
+                            <BottomSheetView style={{height: windowHeight-265, width: "100%", backgroundColor: Colors[colorScheme ?? "light"].primaryBackground}}>
                                 <View style={{height: 390, width: "100%", justifyContent: "center", alignItems: "center"}}>
-                                    <Text>LOADING ANIMATION HERE</Text>
+                                    <Text style={{color: Colors[colorScheme ?? "light"].primaryText}}>LOADING ANIMATION HERE</Text>
                                 </View>
                                 <View style={{height: windowHeight-265-390, width: "100%", justifyContent: "center", alignItems: "center", paddingHorizontal: 20,}}>
                                     <Text style={{...defaultStyles.title, fontSize: 14}}>Did you know?</Text>
