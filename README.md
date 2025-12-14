@@ -20,7 +20,7 @@ This repository contains an app scaffold with `app/`, `components/`, `assets/`, 
 
 ## Tech stack
 
-* React Native (Expo) — inferred from presence of `app.json`. 
+* React Native (Expo)
 * TypeScript (100% TypeScript language in repo). 
 * Node.js / npm for package management
 
