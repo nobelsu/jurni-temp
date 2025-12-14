@@ -2,6 +2,7 @@
   "expo": {
     "name": "jurni-temp",
     "slug": "jurni-temp",
+    "scheme": "jurni-temp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -14,15 +15,18 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.jurnitemp",
-      "userInterfaceStyle": "automatic"
+      "bundleIdentifier": "com.suhendra.jurni",
+      "userInterfaceStyle": "automatic",
+      "config": {
+        "googleMapsApiKey":  "process.env.GOOGLE_MAPS_API_KEY"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.anonymous.jurnitemp",
+      "package": "com.suhendra.jurni",
       "userInterfaceStyle": "automatic"
     },
     "web": {

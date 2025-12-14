@@ -1,10 +1,46 @@
-import { Text } from 'react-native';
+import { Text, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView, View, TextInput, TouchableOpacity, Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
+import { useColorScheme } from 'react-native';
+import StyleDefault from '../../constants/DefaultStyles';
+import { Colors } from '../../constants/Colors';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope'
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons/faAngleLeft';
+import Btn from '../../components/CustomButton';
 
 export default function RegisterEmailScreen() {
+    const router = useRouter();
+    const colorScheme = useColorScheme();
+    const defaultStyles = StyleDefault({ colorScheme });
+
     return (
-        <SafeAreaView>
-            <Text>Register Email</Text>
-        </SafeAreaView>
+        <TouchableWithoutFeedback onPress={() => {Keyboard.dismiss()}}>
+            <SafeAreaView style={{...defaultStyles.container, paddingHorizontal: 20,}}>
+                <KeyboardAvoidingView style={{flex: 1,}} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+                    <View style={{flex: 5, paddingTop: 30,}}>
+                        <Text style={defaultStyles.title}>Enter your email</Text>
+                        <Text style={{...defaultStyles.subtitle, marginTop: 10,}}>Let's get you setup with your email</Text>
+                        <View style={{marginTop: 20, height: 60,}}>
+                            <View style={{flex: 1, alignItems: "center", justifyContent: "center", flexDirection: "row", borderRadius: 15, backgroundColor: Colors[colorScheme ?? "light"].secondaryBackground, gap: 12,}}>
+                                <FontAwesomeIcon icon={faEnvelope} size={14} color={Colors[colorScheme ?? "light"].secondaryText}/>
+                                <TextInput style={{width: "80%", height: "100%", fontSize: 16, fontFamily:'Outfit_400Regular', color: Colors[colorScheme ?? "light"].secondaryText,}} placeholderTextColor={Colors[colorScheme ?? "light"].tertiaryText} placeholder='Email' autoFocus selectionColor={Colors[colorScheme ?? "light"].secondaryText} keyboardType='email-address' autoCapitalize='none' />
+                            </View>
+                        </View>
+                    </View>
+                    
+                    <View style={{flex: 1, flexDirection: "row"}}>
+                        <View style={{flex: 1, justifyContent: "center", alignItems: "flex-start", width: "100%"}}>
+                            <TouchableOpacity onPress={() => {router.back()}} style={{padding: 16, borderRadius: "100%", backgroundColor: Colors[colorScheme ?? "light"].primary}}>
+                                <FontAwesomeIcon icon={faAngleLeft} size={20} color={Colors[colorScheme ?? "light"].btnText}/>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{flex: 1, justifyContent: "center", alignItems: "flex-end", width: "100%"}}>
+                            <Btn styleBtn={{width: "80%", borderRadius: 100,}} text="Next" onPress={() => {router.navigate('register/password');}} />
+                        </View>
+                    </View>
+                </KeyboardAvoidingView>
+            </SafeAreaView>
+        </TouchableWithoutFeedback>
     )
 }

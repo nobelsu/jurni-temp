@@ -13,7 +13,6 @@ import { Outfit_800ExtraBold } from '@expo-google-fonts/outfit/800ExtraBold';
 import { Outfit_900Black } from '@expo-google-fonts/outfit/900Black';
 
 export default function RootStackLayout() {
-  const colorScheme = useColorScheme();
   let [fontsLoaded] = useFonts({
     Outfit_100Thin, 
     Outfit_200ExtraLight, 
@@ -30,14 +29,12 @@ export default function RootStackLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack screenOptions={{headerShown: false}}>
-        <Stack.Screen name="index" />
-        <Stack.Screen name="phone_number" />
-        <Stack.Screen name="login" />
-        <Stack.Screen name="register" />
-        <Stack.Screen name="home" />
-      </Stack>
-    </ThemeProvider>
+    <Stack screenOptions={{headerShown: false, gestureEnabled: false}}>
+      <Stack.Screen name="index" />
+      <Stack.Screen name="phone_number" />
+      <Stack.Screen name="login" />
+      <Stack.Screen name="register" />
+      <Stack.Screen name="home" />
+    </Stack>
   );
 }

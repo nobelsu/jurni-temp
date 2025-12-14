@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { Colors } from '../../constants/Colors';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faLock } from '@fortawesome/free-solid-svg-icons/faLock'
+import { faKey } from '@fortawesome/free-solid-svg-icons/faKey'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons/faAngleLeft';
 
 export default function RegisterPasswordScreen() {
@@ -18,11 +18,11 @@ export default function RegisterPasswordScreen() {
             <SafeAreaView style={{...defaultStyles.container, paddingHorizontal: 20,}}>
                 <KeyboardAvoidingView style={{flex: 1,}} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
                     <View style={{flex: 5, paddingTop: 30,}}>
-                        <Text style={defaultStyles.title}>Enter your password</Text>
-                        <Text style={{...defaultStyles.subtitle, marginTop: 10,}}>This will be used to secure your account</Text>
+                        <Text style={defaultStyles.title}>Confirm your password</Text>
+                        <Text style={{...defaultStyles.subtitle, marginTop: 10,}}>Re-enter your password to make sure it's correct</Text>
                         <View style={{marginTop: 20, height: 60,}}>
                             <View style={{flex: 1, alignItems: "center", justifyContent: "center", flexDirection: "row", borderRadius: 15, backgroundColor: Colors[colorScheme ?? "light"].secondaryBackground, gap: 12,}}>
-                                <FontAwesomeIcon icon={faLock} size={14} color={Colors[colorScheme ?? "light"].secondaryText}/>
+                                <FontAwesomeIcon icon={faKey} size={14} color={Colors[colorScheme ?? "light"].secondaryText}/>
                                 <TextInput style={{width: "80%", height: "100%", fontSize: 16, fontFamily:'Outfit_400Regular', color: Colors[colorScheme ?? "light"].secondaryText,}} placeholderTextColor={Colors[colorScheme ?? "light"].tertiaryText} secureTextEntry placeholder='Password' autoFocus selectionColor={Colors[colorScheme ?? "light"].secondaryText}/>
                             </View>
                         </View>
@@ -35,7 +35,7 @@ export default function RegisterPasswordScreen() {
                             </TouchableOpacity>
                         </View>
                         <View style={{flex: 1, justifyContent: "center", alignItems: "flex-end", width: "100%"}}>
-                            <Btn styleBtn={{width: "80%", borderRadius: 100,}} text="Next" onPress={() => {router.navigate('register/confirm');}} />
+                            <Btn styleBtn={{width: "80%", borderRadius: 100,}} text="Register" onPress={() => {router.navigate('home/map');}} />
                         </View>
                     </View>
                 </KeyboardAvoidingView>

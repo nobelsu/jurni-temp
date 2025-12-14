@@ -1,6 +1,5 @@
 import { ColorSchemeName, StyleSheet } from "react-native";
 import { Colors } from "./Colors";
-import { useFonts } from 'expo-font';
 
 interface StyleDefaultProps {
     colorScheme : ColorSchemeName    
@@ -20,15 +19,14 @@ export default function StyleDefault({ colorScheme } : StyleDefaultProps) {
       paddingTop: 10,
     },
     title: {
-      fontSize: 22,
+      fontSize: 24,
       fontFamily: 'Outfit_600SemiBold',
       color: Colors[colorScheme ?? "light"].primaryText,
-      marginBottom: 4,
     },
     subtitle: {
-      fontSize: 14,
+      fontSize: 16,
       fontFamily: 'Outfit_400Regular',
-      color: Colors[colorScheme ?? "light"].secondary,
+      color: Colors[colorScheme ?? "light"].secondaryText,
     },
     smallCard: {
       borderRadius: 8,

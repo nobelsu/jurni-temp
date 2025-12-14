@@ -8,8 +8,10 @@ export const Colors = {
     secondary: "#dcddde",
     borderColor: "black",
     primaryBackground: "white",
-    secondaryBackground: "#dcddde",
+    secondaryBackground: "#ffedef",
     primaryText: "black",
+    secondaryText: "#8c0434",
+    tertiaryText: "#bd979e",
 
     
     text: "#1a1a1a",
@@ -33,9 +35,10 @@ export const Colors = {
     secondary: "#efe1d3",
     borderColor: "white",
     primaryBackground: "black",
-    secondaryBackground: "#dcddde",
+    secondaryBackground: "#1a1215",
     primaryText: "white",
-
+    secondaryText: "#ba949b",
+    tertiaryText: "#c9bdbf",
 
     text: "#e6e6e6",
     lighterText: "#808793",
