@@ -13,7 +13,7 @@ export default function GettingStartedScreen() {
     const windowHeight = Dimensions.get('window').height;
 
     return (
-        <SafeAreaView style={{...defaultStyles.container, paddingHorizontal: 20,}}>
+        <SafeAreaView style={defaultStyles.container}>
             <View style={{flex: 1, paddingTop: 20, gap: 5,}}>
                 <Text style={{fontSize: 14, fontFamily: "Outfit_900Black", color: Colors[colorScheme ?? "light"].primaryText}}>jurni</Text>
                 <Text style={{fontSize: 14, fontFamily: "Outfit_900Black", color: Colors[colorScheme ?? "light"].primary}}>welcome</Text>

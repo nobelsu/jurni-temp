@@ -9,6 +9,7 @@ export default function StyleDefault({ colorScheme } : StyleDefaultProps) {
   const DefaultStyles = StyleSheet.create({
     container: {
       flex: 1,
+      paddingHorizontal: 20,
       backgroundColor: Colors[colorScheme ?? "light"].primaryBackground,
     },
     header: {

@@ -16,8 +16,13 @@ export default function ProfileScreen() {
     const router = useRouter()
 
     return (
-        <SafeAreaView style={{flex: 1,  backgroundColor: Colors[colorScheme ?? "light"].primaryBackground}}>
-            <View style={{flex: 1, paddingHorizontal: 20, justifyContent: "center", alignItems: "center"}}>
+        <SafeAreaView style={defaultStyles.container}>
+            <View style={{
+                flex: 1, 
+                justifyContent: "center", 
+                alignItems: "center"
+            }}
+            >
                 <TouchableOpacity onPress={() => {navigation.dispatch(DrawerActions.toggleDrawer())}} style={{
                     position: "absolute",
                     height: 50,
@@ -29,12 +34,29 @@ export default function ProfileScreen() {
                     zIndex: 1000,
                     justifyContent: "center",
                     alignItems: "center",
-                }}>
-                    <FontAwesomeIcon icon={faBars} size={20} color={Colors[colorScheme ?? "light"].primary}/>
+                }}
+                >
+                    <FontAwesomeIcon 
+                        icon={faBars} 
+                        size={20} 
+                        color={Colors[colorScheme ?? "light"].primary}
+                    />
                 </TouchableOpacity>
 
-                <Text style={{...defaultStyles.title, marginBottom: 8}}>Page not found.</Text>
-                <Text style={{...defaultStyles.subtitle, marginBottom: 60,}}>This is not an actual page...</Text>
+                <Text style={{
+                    ...defaultStyles.title, 
+                    marginBottom: 8
+                }}
+                >
+                    Page not found.
+                </Text>
+                <Text style={{
+                    ...defaultStyles.subtitle, 
+                    marginBottom: 60,
+                }}
+                >
+                    This is not an actual page...
+                </Text>
                 <Btn text="return home" onPress={() => {router.navigate("/")}}/>
             </View>
         </SafeAreaView>

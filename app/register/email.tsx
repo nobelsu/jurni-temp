@@ -16,7 +16,7 @@ export default function RegisterEmailScreen() {
 
     return (
         <TouchableWithoutFeedback onPress={() => {Keyboard.dismiss()}}>
-            <SafeAreaView style={{...defaultStyles.container, paddingHorizontal: 20,}}>
+            <SafeAreaView style={defaultStyles.container}>
                 <KeyboardAvoidingView style={{flex: 1,}} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
                     <View style={{flex: 5, paddingTop: 30,}}>
                         <Text style={defaultStyles.title}>Enter your email</Text>

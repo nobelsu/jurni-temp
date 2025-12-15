@@ -6,8 +6,9 @@ import { useRouter } from 'expo-router';
 import { Colors } from '../constants/Colors';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faPhone } from '@fortawesome/free-solid-svg-icons/faPhone'
-import { faAngleLeft } from '@fortawesome/free-solid-svg-icons/faAngleLeft'
 import { useState } from 'react';
+import { validPhoneNumber } from '../constants/MockData';
+import BackBtn from '../components/BackButton';
 
 export default function PhoneNumberScreen() {
     const router = useRouter();
@@ -17,11 +18,9 @@ export default function PhoneNumberScreen() {
     const [cc, setCC] = useState<string>("44");
     const [number, setNumber] = useState<string>("");
 
-    const validPhoneNumber = "44111111111";
-
     return (
         <TouchableWithoutFeedback onPress={() => {Keyboard.dismiss()}}>
-            <SafeAreaView style={{...defaultStyles.container, paddingHorizontal: 20,}}>
+            <SafeAreaView style={defaultStyles.container}>
                 <KeyboardAvoidingView style={{flex: 1,}} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
                     <View style={{flex: 5, paddingTop: 30,}}>
                         <Text style={defaultStyles.title}>Enter your mobile number</Text>
@@ -34,10 +33,28 @@ export default function PhoneNumberScreen() {
                                     </View>
                                     
                                     <View style={{ height: "100%", justifyContent: "center", alignItems: "center", flexDirection: "row", marginLeft: 10, gap: 5,}}>
-                                        <Text style={{ fontSize: 16, fontFamily:'Outfit_400Regular', color: Colors[colorScheme ?? "light"].secondaryText}}>
+                                        <Text style={{ 
+                                            fontSize: 16, 
+                                            fontFamily:'Outfit_400Regular', 
+                                            color: Colors[colorScheme ?? "light"].secondaryText
+                                        }}
+                                        >
                                             +
                                         </Text>
-                                        <TextInput style={{fontSize: 16,  fontFamily:'Outfit_400Regular', height: "100%", width: 40, color: Colors[colorScheme ?? "light"].secondaryText}} placeholderTextColor={Colors[colorScheme ?? "light"].tertiaryText} keyboardType='number-pad' value={cc} onChangeText={setCC} placeholder="CC" selectionColor={Colors[colorScheme ?? "light"].secondaryText}/>
+                                        <TextInput style={{
+                                            fontSize: 16,  
+                                            fontFamily:'Outfit_400Regular', 
+                                            height: "100%", 
+                                            width: 40, 
+                                            color: Colors[colorScheme ?? "light"].secondaryText
+                                        }} 
+                                        placeholderTextColor={Colors[colorScheme ?? "light"].tertiaryText} 
+                                        keyboardType='number-pad' 
+                                        value={cc} 
+                                        onChangeText={setCC} 
+                                        placeholder="CC" 
+                                        selectionColor={Colors[colorScheme ?? "light"].secondaryText}
+                                        />
                                     </View>
                                     
                                 </View>
@@ -49,9 +66,7 @@ export default function PhoneNumberScreen() {
                     </View>
                     <View style={{flex: 1, flexDirection: "row"}}>
                         <View style={{flex: 1, justifyContent: "center", alignItems: "flex-start", width: "100%"}}>
-                            <TouchableOpacity onPress={() => {router.back()}} style={{padding: 16, borderRadius: "100%", backgroundColor: Colors[colorScheme ?? "light"].primary}}>
-                                <FontAwesomeIcon icon={faAngleLeft} size={20} color={Colors[colorScheme ?? "light"].btnText}/>
-                            </TouchableOpacity>
+                            <BackBtn />
                         </View>
                         <View style={{flex: 1, justifyContent: "center", alignItems: "flex-end", width: "100%"}}>
                             <Btn styleBtn={{width: "80%", borderRadius: 100,}} text="next" onPress={() => {
